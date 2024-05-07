@@ -1,4 +1,4 @@
-# Metasploit
+# SQL injection
 Exploiting SQL Injection vulnerability
 
 # AIM:
