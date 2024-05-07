@@ -23,37 +23,38 @@ Open terminal and try execute some kali linux commands
 SQL Injection is a sort of infusion assault that makes it conceivable to execute malicious SQL statements. These statements control a database server behind a web application. Assailants can utilize SQL Injection vulnerabilities to sidestep application safety efforts. They can circumvent authentication and authorization of a page or web application and recover the content of the whole SQL database. 
 Identify IP address using ifconfig in Metasploitable2
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/7b7037a6-9e7d-4e93-8cfa-9f93d3c1edff)
+![Screenshot 2024-05-07 093605](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/d18d89c9-58e3-4a87-bcb4-7cec0088ad69)
 
 Use the above ip address to access the apache webserver of Metasploitable2 from kali linux. In Kali Linux use the ip address in a web browser.
 
+![Screenshot 2024-05-07 093638](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/457af7c5-b857-4207-8d61-845f8b203cc9)
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/09656390-14a7-457f-a077-ada20b28674a)
+
 
 
 
 
 Select Multidae from the menu listed as shown above. You will get the page as displayed below:
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/e7389688-939f-4440-9d92-f5f5b13de72a)
+
+![Screenshot 2024-05-07 093657](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/a595294d-a933-4bba-a8e5-c2041311c779)
 
 Click on the menu Login/Register and register for an account
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/c96d66f1-87b8-4962-b282-45c9b4b8a96a)
+![Screenshot 2024-05-07 094019](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/069ff42d-838b-47f5-b9be-6e71e19e25bb)
 
 
 
 Click on the link “Please register here”
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/ed9c58ef-fe35-4e46-8b06-88def0f44d69)
+![Screenshot 2024-05-07 094036](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/4bb839f2-c4a3-42ab-95dc-95d8fb6084d8)
 
 
 
 
 Click on “Create Account” to display the following page:
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/d2aa95a4-ffdf-4641-bf42-d049117c920c)
-
+![Screenshot 2024-05-07 094101](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/15dc7c03-f7de-4c68-bf11-84f1d3cd43c5)
 
 
 The login structure we will use in our examples is straightforward. It contains two input fields (username and password), which are both vulnerable. The back-end content creates a query to approve the username and secret key given by the client. Here is an outline of the page rationale:
