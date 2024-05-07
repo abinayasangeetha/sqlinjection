@@ -60,7 +60,7 @@ Click on “Create Account” to display the following page:
 The login structure we will use in our examples is straightforward. It contains two input fields (username and password), which are both vulnerable. The back-end content creates a query to approve the username and secret key given by the client. Here is an outline of the page rationale:
 
 ($query = “SELECT * FROM users WHERE username=’$_POST[username]’ AND password=’$_POST[password]’“;).
- For the username put “ganesh” or “anything” and for the password put (anything’ or ‘1’=’1) or (admin’ or ‘1’=’1) then try to log in, and you’ll be presented with an admin login page.
+ For the username put “abinaya” or “anything” and for the password put (anything’ or ‘1’=’1) or (admin’ or ‘1’=’1) then try to log in, and you’ll be presented with an admin login page.
 
 ![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/99360764-4aec-4418-818d-526f62a56a5d)
 
@@ -142,7 +142,7 @@ After logging out, Now choose the menu as shown below:
 
 ![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/16faf4af-a57b-4a9c-a520-0151b5d9517f)
 ![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/1bf8ea0b-5345-4c13-9133-707c5b6a1552)
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/a27e89f2-ac41-4ded-8122-4f487c5f0052)
+
 ![imag2](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/5d166418-fb52-47ad-97f2-3ef0796dfb89)
 ![image2](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/5a733fd0-5e12-4ce5-8af6-9436bdbe2751)
 
@@ -151,7 +151,7 @@ After logging out, Now choose the menu as shown below:
 From this point, all our attack vectors will be performed in the URL section of the page using the Union-Based technique.There are two different ways to discover how many columns are selected by the original query. The first is to infuse an “ORDER BY” statement indicating a column number. Given the column number specified is higher than the number of columns in the “SELECT” statement, an error will be returned.
 
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/a191c3f4-5f9b-4a0e-b2db-4c5fe1f0893a)
+
 
 
 
@@ -164,7 +164,7 @@ The browser url of this info page need to be modified with the url as below:
 
 http://192.168.43.145/mutillidae/index.php?page=user-info.php&username=ganesh%27order%20by%206%23&password=&user-info-php-submit-button=View+Account+Details
 
-![image](https://github.com/abinayasangeetha/sqlinjection/assets/119393675/200b9b2d-08bd-426d-ab98-766bfe59d7c4)
+
 
 
 
